@@ -1,5 +1,5 @@
 // import navbar from './pages/landing/navbar';
-import './App.css';
+import './index.css';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
 import Header from './components/Header';
@@ -25,18 +25,9 @@ function App() {
       {/* <Router> */}
         <div className='flex-column justify-flex-start min-100-vh'>
           <Header />
-          <div className='container'>
-            <Home />
-            {/* <Switch>
-              <Route exact path="/" component={Home} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/signup" component={Signup} />
-              <Route exact path="/profile/:username?" component={Profile} />
-              <Route exact path="/thought/:id" component={SingleThought} />
-            
-              <Route component={NoMatch} />
-            </Switch> */}
-          </div>
+            <div className='container'>
+              <Home />
+            </div>
           <Footer />
         </div>
       {/* </Router> */}
