@@ -35,7 +35,7 @@ function Nav() {
                         <a className="btn btn-outline-dark start" href="#">Log In/ Sign out</a>
 
                     </ul>
-
+                    <div>lol</div>
 
                 </div>
 
