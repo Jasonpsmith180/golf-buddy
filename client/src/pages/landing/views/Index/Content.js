@@ -15,8 +15,8 @@ function Content() {
                         <br />
                         <h6><a className="btn btn-dark start start-two" href="#">Get Started</a></h6>
                     </div>
-                    <div className="col-sm-9 showcase-img">
-                        {/* <div className="circle"></div> */}
+                    <div className="col-sm-9">
+                        <image className="golfbuddy.jpg"></image>
                     </div>
                 </div>
             </div>
