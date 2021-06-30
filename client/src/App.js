@@ -1,4 +1,5 @@
 import logo from './logo.svg';
+import navbar from './pages/landing/navbar';
 import './App.css';
 
 function App() {
