@@ -3,28 +3,30 @@ const { gql } = require('apollo-server-express');
 
 // create our typeDefs
 const typeDefs = gql`
-    
+
     type User {
         _id: ID
         username: String
         email: String
         friendCount: Int
-        comments: [Comment]
+        scores: [Score]
         friends: [User]
+    }
+
+    type Score {
+        _id: ID
+        score: Int
+        par: Int
+        course: String
+        username: String
+        createdAt: String
+        commentCount: Int
+        comments: [Comment]
     }
 
     type Comment {
         _id: ID
-        commentText: String
-        createdAt: String
-        username: String
-        replyCount: Int
-        replies: [Reply]
-    }
-
-    type Reply {
-        _id: ID
-        replyBody: String
+        commentBody: String
         createdAt: String
         username: String
     }
@@ -33,15 +35,15 @@ const typeDefs = gql`
         me: User
         users: [User]
         user(username: String!): User
-        comments(username: String): [Comment]
-        comment(_id: ID!): Comment
+        scores(username: String): [Score]
+        score(_id: ID!): Score
     }
 
     type Mutation {
         login(email: String!, password: String!): Auth
         addUser(username: String!, email: String!, password: String!): Auth
-        addComment(commentText: String!): Comment
-        addReply(commentId: ID!, replyBody: String!): Comment
+        addScore(score: Int!, par: Int!, course: String!): Score
+        addComment(scoreId: ID!, commentBody: String!): Score
         addFriend(friendId: ID!): User
     }
 
