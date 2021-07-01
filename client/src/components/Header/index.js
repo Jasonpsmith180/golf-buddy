@@ -5,12 +5,12 @@ function Header() {
     return (
     <header className="bg-secondary mb-4 py-2 flex-row align-center">
         <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <Link to="/">
-          <h1>Golf Buddy</h1>
-        </Link>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light static-top header-a">
+        
+        <nav className="navbar navbar-expand-lg navbar-light bg-light static-top header-a flex-row">
             <div className="container nav-container">
-                <a className="navbar-brand brand" href="#">Golf Buddy</a>
+            <Link to="/">
+                <h1>Golf Buddy</h1>
+            </Link>
 
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -38,7 +38,8 @@ function Header() {
                             <a className="nav-link" href="#">Support</a>
                         </li>
 
-                        <a className="btn btn-outline-dark start" href="#">Log In/ Sign out</a>
+                        <Link to="/login">Login</Link>
+                        <Link to="/signup">Signup</Link>
 
                     </ul>
                     <div>lol</div>
