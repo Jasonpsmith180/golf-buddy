@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600,700,800');
 
 :root {
-  --primary:#06bd31;
+  --primary:#2393dd;
   --secondary:#ffffff;
   --tertiary: #167bff;
   --dark: #000000;
@@ -11,7 +11,6 @@
   box-sizing: border-box;
 }
 body {
-  background: var(--primary) !important;
   min-height: 100vh;
   display: flex;
   font-weight: 400;
@@ -137,7 +136,7 @@ body, html, .App, #root, .auth-wrapper {
 }
 
 .showcase-img {
-  background-image: url('client\src\images\golfbuddy.jpg');
+  background-image: url('./images/golfbuddy.jpg');
   background-color: #F4F5FF;
   background-position: center;
   background-repeat: no-repeat;
