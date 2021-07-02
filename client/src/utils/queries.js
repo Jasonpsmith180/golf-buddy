@@ -1,18 +1,98 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_COMMENTS = gql`
-    query comments($username: String) {
-        comments(username: $username) {
+export const QUERY_SCORES = gql`
+    query scores($username: String) {
+        scores (username: $username) {
             _id
-            commentText
+            username
+            score
+            par
+            course
+            createdAt
+            comments {
+            _id
             createdAt
             username
-            replyCount
-            replies {
-                _id
+            commentBody
+            }
+        }
+    }
+`;
+
+export const QUERY_SCORE = gql`
+    query score($id: ID!) {
+        score(_id: $id) {
+            _id
+            username
+            score
+            par
+            course
+            createdAt
+            comments {
                 createdAt
                 username
-                replyBody
+                commentBody
+            }
+        }
+    }
+`;
+
+export const QUERY_USER = gql`
+    query user($username: String!) {
+        user(username: $username) {
+            _id
+            username
+            email
+            friendCount
+            friends {
+                _id
+                username
+            }
+            scores {
+                _id
+                score
+                par
+                course
+                createdAt
+                commentCount
+            }
+        }
+    }
+`;
+
+export const QUERY_ME = gql`
+    {
+        me {
+            _id
+            username
+            email
+            scores {
+                _id
+                score
+                par
+                course
+                createdAt
+                comments {
+                    _id
+                    createdAt
+                    username
+                    commentBody
+                }
+            }
+        }
+    }
+`;
+
+export const QUERY_ME_BASIC = gql`
+    {
+        me {
+            _id
+            username
+            email
+            friendCount
+            friends {
+                _id
+                username
             }
         }
     }
