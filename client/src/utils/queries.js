@@ -29,6 +29,7 @@ export const QUERY_SCORE = gql`
             course
             createdAt
             comments {
+                createdAt
                 username
                 commentBody
             }
@@ -52,6 +53,7 @@ export const QUERY_USER = gql`
                 score
                 par
                 course
+                createdAt
                 commentCount
             }
         }

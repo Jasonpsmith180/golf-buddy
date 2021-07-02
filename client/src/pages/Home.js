@@ -1,15 +1,32 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
+import { QUERY_SCORES, QUERY_ME_BASIC } from '../utils/queries';
+import ScoreList from '../components/ScoreList';
+import FriendList from '../components/FriendList';
+import ScoreForm from '../components/ScoreForm';
+import Auth from '../utils/auth';
 
 const Home = () => {
-    // // use useQuery hook to make request
-    // const { loading, data } = useQuery(QUERY_COMMENTS);
+    // use useQuery hook to make request
+    const { loading, data } = useQuery(QUERY_SCORES);
 
-    // const comments = data?.comments || [];
-    // console.log(comments);
+    const { data: userData } = useQuery(QUERY_ME_BASIC);
+
+    const scores = data?.scores || [];
+    console.log(scores);
+
+    const loggedIn = Auth.loggedIn();
 
     return (
             <main>
+                <div className="flex-row justify-space-between">
+                    {loggedIn && (
+                        <div className="col-12 mb-3">
+                            <ScoreForm />
+                        </div>
+                    )}
+                    </div>
+                    <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}></div>
                 <div>
                     <div className="container content">
                         <div className="row">
@@ -58,6 +75,24 @@ const Home = () => {
                                         <h5>Oorem Tag</h5>
                                         <p className="lead mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                     </div>
+                                </div>
+                                <div className="flex-row justify-space-between">
+                                <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
+                                    {loading ? (
+                                        <div>Loading...</div>
+                                    ) : (
+                                        <ScoreList scores={scores} title="New Scores..." />
+                                    )}
+                                    </div>
+                                    {loggedIn && userData ? (
+                                        <div className="col-12 col-lg-3 mb-3">
+                                            <FriendList
+                                                username={userData.me.username}
+                                                friendCount={userData.me.friendCount}
+                                                friends={userData.me.friends}
+                                            />
+                                        </div>
+                                    ) : null}
                                 </div>
                             </div>
                         </div>
