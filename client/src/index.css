@@ -190,7 +190,7 @@ body, html, .App, #root, .auth-wrapper {
   background-color: #212529;
   padding-top: 25px;
   color: white;
-  position: absolute;
+  position: static;
   bottom: 0;
   height: 100px;
   width: 100%;
