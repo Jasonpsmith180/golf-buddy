@@ -3,21 +3,21 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_SCORE } from '../utils/queries';
 import CommentList from '../components/CommentList';
-// import ReactionForm from '../components/ReactionForm';
-// import Auth from '../utils/auth';
+import CommentForm from '../components/CommentForm';
+import Auth from '../utils/auth';
 
 const SingleScore = (props) => {
-const { id: scoreId } = useParams();
+  const { id: scoreId } = useParams();
 
-const { loading, data } = useQuery(QUERY_SCORE, {
-    variables: { id: scoreId }
-});
+  const { loading, data } = useQuery(QUERY_SCORE, {
+      variables: { id: scoreId }
+  });
 
-const score = data?.score || {};
+  const score = data?.score || {};
 
-if (loading) {
-  return <div>Loading...</div>;
-}
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -29,11 +29,15 @@ if (loading) {
                 scored on {score.createdAt}
             </p>
             <div className="card-body">
-                <p>{score.score}</p>
+              <p>{score.score} at {score.course}, par is {score.par}</p>
+                <p className="mb-0">
+                    Comments: {score.commentCount} || Click to{' '}
+                    {score.commentCount ? 'see' : 'start'} the discussion!
+                </p>
             </div>
         </div>
-      
         {score.commentCount > 0 && <CommentList comments={score.comments} />}
+        {Auth.loggedIn() && <CommentForm scoreId={score._id} />}
     </div>
   );
 };

@@ -9,11 +9,12 @@ export const QUERY_SCORES = gql`
             par
             course
             createdAt
+            commentCount
             comments {
-            _id
-            createdAt
-            username
-            commentBody
+                _id
+                createdAt
+                username
+                commentBody
             }
         }
     }
@@ -28,6 +29,7 @@ export const QUERY_SCORE = gql`
             par
             course
             createdAt
+            commentCount
             comments {
                 createdAt
                 username
@@ -72,12 +74,18 @@ export const QUERY_ME = gql`
                 par
                 course
                 createdAt
+                commentCount
                 comments {
                     _id
                     createdAt
                     username
                     commentBody
                 }
+            }
+            friendCount 
+            friends {
+                _id
+                username
             }
         }
     }

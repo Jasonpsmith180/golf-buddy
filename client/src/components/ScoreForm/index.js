@@ -13,7 +13,7 @@ const ScoreForm = () => {
         update(cache, { data: { addScore } }) {
             try {
                 const { scores } = cache.readQuery({ query: QUERY_SCORES });
-
+                
                 cache.writeQuery({
                     query: QUERY_SCORES,
                     data: { scores: [addScore, ...scores] }
@@ -47,7 +47,7 @@ const ScoreForm = () => {
 
         try {
             await addScore({
-                variables: { score, par, course }
+                variables: { score: parseInt(score), par: parseInt(par), course }
             });
 
             // clear form

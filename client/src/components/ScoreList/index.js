@@ -24,7 +24,7 @@ const ScoreList = ({ scores, title }) => {
                     </p>
                     <div className="card-body">
                         <Link to={`/score/${score._id}`}>
-                            <p>{score.score}</p>
+                            <p>{score.score} at {score.course}, par is {score.par}</p>
                             <p className="mb-0">
                                 Comments: {score.commentCount} || Click to{' '}
                                 {score.commentCount ? 'see' : 'start'} the discussion!
