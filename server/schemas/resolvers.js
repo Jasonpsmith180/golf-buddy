@@ -20,7 +20,7 @@ const resolvers = {
         },
         scores: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return Score.find().sort({ createdAt: -1 });
+            return Score.find(params).sort({ createdAt: -1 });
         },
         score: async (parent, { _id }) => {
             return Score.findOne({ _id });

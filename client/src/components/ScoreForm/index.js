@@ -13,7 +13,7 @@ const ScoreForm = () => {
         update(cache, { data: { addScore } }) {
             try {
                 const { scores } = cache.readQuery({ query: QUERY_SCORES });
-
+                
                 cache.writeQuery({
                     query: QUERY_SCORES,
                     data: { scores: [addScore, ...scores] }
@@ -30,18 +30,24 @@ const ScoreForm = () => {
         }
     });
 
-    const handleChange = event => {
+    const handleScoreChange = event => {
         setScore(event.target.value);
-        setPar(event.target.value);
-        setCourse(event.target.value);
     };
+
+    const handleParChange = event => {
+        setPar(event.target.value);
+    }
+    
+    const handleCourseChange = event => {
+        setCourse(event.target.value);
+    }
 
     const handleFormSubmit = async event => {
         event.preventDefault();
 
         try {
             await addScore({
-                variables: { score }
+                variables: { score: parseInt(score), par: parseInt(par), course }
             });
 
             // clear form
@@ -60,28 +66,28 @@ const ScoreForm = () => {
                     className='form-input'
                     placeholder='Your Score'
                     name='score'
-                    type='score'
+                    type='text'
                     id='score'
                     value={score}
-                    onChange={handleChange}
+                    onChange={handleScoreChange}
                 />
                 <input
                     className='form-input'
                     placeholder='Course Par'
                     name='par'
-                    type='par'
+                    type='text'
                     id='par'
                     value={par}
-                    onChange={handleChange}
+                    onChange={handleParChange}
                 />
                 <input
                     className='form-input'
                     placeholder='Course'
                     name='course'
-                    type='course'
+                    type='text'
                     id='course'
                     value={course}
-                    onChange={handleChange}
+                    onChange={handleCourseChange}
                 />
                 <button className='btn d-block w-100' type='submit'>
                     Submit

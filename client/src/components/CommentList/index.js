@@ -22,4 +22,4 @@ const CommentList = ({ comments }) => {
     );
 };
 
-export default CommentList
+export default CommentList;
