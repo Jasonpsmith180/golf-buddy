@@ -23,7 +23,7 @@ const SingleScore = (props) => {
     <div>
         <div className="card mb-3">
             <p className="card-header">
-                <span style={{ fontWeight: 700 }} className="text-light">
+                <span style={{ fontWeight: 700 }} className="text-dark">
                     {score.username}
                 </span>{' '}
                 scored on {score.createdAt}

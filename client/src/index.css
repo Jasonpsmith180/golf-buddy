@@ -31,10 +31,11 @@ body {
   line-height: 1.5;
   font-size: 20px;
   color: var(--dark);
-  background-color: #d5fdd5e1;
-  background-image: url('./images/background.jpg');
+  background-image: url("images/background.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 h1,
@@ -144,16 +145,19 @@ nav a:hover {
 }
 
 .card-header {
-  color: var(--secondary);
+  color: var(--dark);
   margin: 0;
-  background-color: var(--dark);
+  background-color: var(--secondary);
   padding: 0.625rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  text-align: left;
 }
 
 .card-body {
   padding: 2.5%;
   font-size: 1.4rem;
+  text-align: left;
+  margin-left: var(--spacing-two);
 }
 
 /* FORM */
@@ -258,6 +262,42 @@ nav a:hover {
 
 .display-inline {
   display: inline;
+}
+
+/* SLIDESHOW */
+.slideshow {
+  margin: 0;
+  overflow: hidden;
+  max-width: 800px;
+}
+.slideshowSlider {
+  white-space: nowrap;
+  transition: ease 1000ms;
+}
+
+.slide {
+  display: inline-block;
+  height: 500px;
+  width: 800px;
+  border-radius: 0px;
+}
+
+.slideshowDots {
+  text-align: center;
+}
+
+.slideshowDot {
+  display: inline-block;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin: 15px 7px 0px;
+  background-color: #acacac;
+}
+
+.slideshowDot.active {
+  background-color: #ffffff;
 }
 
 /* HEIGHT / WIDTH UTILS */

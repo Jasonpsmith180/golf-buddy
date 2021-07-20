@@ -16,7 +16,7 @@ const ScoreList = ({ scores, title }) => {
                     <Link
                         to={`/profile/${score.username}`}
                         style={{ fontWeight: 700 }}
-                        className="text-light"
+                        className="text-dark"
                     >
                         {score.username}
                     </Link>{' '}

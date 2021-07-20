@@ -51,9 +51,9 @@ const Profile = props => {
     return (
         <div>
             <div className="flex-row mb-3">
-                <h2 className="bg-dark text-secondary p-3 display-inline-block">
+                <h3 className="bg-dark text-secondary p-3 display-inline-block">
                     Viewing {userParam ? `${user.username}'s` : 'your'} profile.
-                </h2>
+                </h3>
 
                 {userParam && (
                     <button className="btn ml-auto" onClick={handleClick}>
@@ -62,16 +62,12 @@ const Profile = props => {
                 )}
             </div>
 
-            <div className="flex-row justify-space-between mb-3">
-                <div className="col-12 mb-3 col-lg-8">
-                    <div className="mb-3">
-                        {!userParam && (<h3>Submit a score!</h3>)}
-                        {!userParam && <ScoreForm />}
-                    </div>
-                    <ScoreList scores={user.scores} title={`${user.username}'s scores...`} />
+            <div className="flex-row mb-3 justify-space-around bg-light">
+                <div className="col-8 col-md-6 mb-3 p-3">
+                    {!userParam && (<h3>Submit a score!</h3>)}
+                    {!userParam && <ScoreForm />}
                 </div>
-
-                <div className="col-12 col-lg-3 mb-3">
+                <div className="col-4 p-3 mb-3">
                     <FriendList
                         username={user.username}
                         friendCount={user.friendCount}
@@ -79,8 +75,25 @@ const Profile = props => {
                     />
                 </div>
             </div>
-            
-        </div>
+            <div className="flex-row col-10 mb-3 justify-center">
+                <section className="features-icons bg-light text-center det-ails col-10">
+                    <div className="container">
+                        <div className="row">
+                            <div className="flex-row justify-space-between">
+                                <div className="col-12 mb-3">
+                                    {loading ? (
+                                        <div>Loading...</div>
+                                    ) : (
+                                        <ScoreList scores={user.scores} title={`${user.username}'s scores...`} />
+                                    )}
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>  
     );
 };
 
