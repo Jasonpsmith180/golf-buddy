@@ -64,12 +64,12 @@ const ScoreForm = () => {
             <form className="flex-row justify-center justify-space-between-md align-stretch" onSubmit={handleFormSubmit}>
                 <input
                     className='form-input'
-                    placeholder='Your Score'
-                    name='score'
+                    placeholder='Course'
+                    name='course'
                     type='text'
-                    id='score'
-                    value={score}
-                    onChange={handleScoreChange}
+                    id='course'
+                    value={course}
+                    onChange={handleCourseChange}
                 />
                 <input
                     className='form-input'
@@ -82,13 +82,21 @@ const ScoreForm = () => {
                 />
                 <input
                     className='form-input'
-                    placeholder='Course'
-                    name='course'
+                    placeholder='Your Score'
+                    name='score'
                     type='text'
-                    id='course'
-                    value={course}
-                    onChange={handleCourseChange}
+                    id='score'
+                    value={score}
+                    onChange={handleScoreChange}
                 />
+                {/* <select
+                    className='form-input'
+                    placeholder='# of Holes'
+                    name='holes'
+                >
+                    <option value="9 holes">9 Holes</option>
+                    <option value="18 holes">18 Holes</option>
+                </select> */}
                 <button className='btn d-block w-100' type='submit'>
                     Submit
                 </button>

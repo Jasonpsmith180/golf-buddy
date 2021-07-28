@@ -11,6 +11,7 @@ const typeDefs = gql`
         friendCount: Int
         scores: [Score]
         friends: [User]
+        orders: [Order]
     }
 
     type Score {
@@ -31,12 +32,29 @@ const typeDefs = gql`
         username: String
     }
 
+    type Product {
+        _id: ID
+        name: String
+        description: String
+        quantity: Int
+        price: Float
+    }
+
+    type Order {
+        _id: ID
+        purchaseDate: String
+        products: [Product]
+    }
+
     type Query {
         me: User
         users: [User]
         user(username: String!): User
         scores(username: String): [Score]
         score(_id: ID!): Score
+        products(name: String): [Product]
+        product(_id: ID!): Product
+        checkout(products: [ID]!): Checkout
     }
 
     type Mutation {
@@ -45,11 +63,17 @@ const typeDefs = gql`
         addScore(score: Int!, par: Int!, course: String!): Score
         addComment(scoreId: ID!, commentBody: String!): Score
         addFriend(friendId: ID!): User
+        addOrder(products: [ID]!): Order
+        updateProduct(_id: ID!, quantity: Int!): Product
     }
 
     type Auth {
         token: ID!
         user: User
+    }
+
+    type Checkout {
+        session: ID
     }
 `;
 

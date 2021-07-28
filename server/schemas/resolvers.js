@@ -4,6 +4,9 @@ const { User, Score } = require('../models');
 // import sign token
 const { signToken } = require('../utils/auth');
 
+// import stripe
+const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
+
 const resolvers = {
     Query: {
         me: async (parent, args, context) => {
@@ -20,7 +23,7 @@ const resolvers = {
         },
         scores: async (parent, { username }) => {
             const params = username ? { username } : {};
-            return Score.find(params).sort({ createdAt: -1 });
+            return Score.find(params).sort({ createdAt: 1 });
         },
         score: async (parent, { _id }) => {
             return Score.findOne({ _id });
@@ -39,6 +42,10 @@ const resolvers = {
             .populate('friends')
             .populate('scores');
         },
+        // stripe checkout
+        // checkout: async (parent, args, context) => {
+        //     const order = new Order
+        // }
     },
     Mutation: {
         addUser: async (parent, args) => {

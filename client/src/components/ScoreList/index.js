@@ -10,7 +10,7 @@ const ScoreList = ({ scores, title }) => {
         <div>
             <h3>{title}</h3>
             {scores &&
-                scores.map(score => (
+                scores.slice(0).reverse().map(score => (
                     <div key={score._id} className="card mb-3">
                     <p className="card-header">
                     <Link
@@ -20,11 +20,13 @@ const ScoreList = ({ scores, title }) => {
                     >
                         {score.username}
                     </Link>{' '}
-                        scored on {score.createdAt}
+                        played on {score.createdAt}
                     </p>
                     <div className="card-body">
                         <Link to={`/score/${score._id}`}>
-                            <p>{score.score} at {score.course}, par is {score.par}</p>
+                            <p>Course: {score.course} <br />
+                                Par: {score.par} <br />
+                                Score: {score.score}</p>
                             <p className="mb-0">
                                 Comments: {score.commentCount} || Click to{' '}
                                 {score.commentCount ? 'see' : 'start'} the discussion!
