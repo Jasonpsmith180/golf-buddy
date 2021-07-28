@@ -32,10 +32,6 @@ const SingleScore = (props) => {
                 <p>Course: {score.course} <br />
                     Par: {score.par} <br />
                     Score: {score.score}</p>
-                <p className="mb-0">
-                    Comments: {score.commentCount} || Click to{' '}
-                    {score.commentCount ? 'see' : 'start'} the discussion!
-                </p>
             </div>
         </div>
         {score.commentCount > 0 && <CommentList comments={score.comments} />}

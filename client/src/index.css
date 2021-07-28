@@ -269,6 +269,7 @@ nav a:hover {
   margin: 0;
   overflow: hidden;
   max-width: 800px;
+  display: none;
 }
 .slideshowSlider {
   white-space: nowrap;
@@ -1022,6 +1023,10 @@ nav a:hover {
   .align-center-sm {
     align-items: center;
   }
+
+  .slideshow {
+    display: none;
+  }
 }
 
 /* col-md */
@@ -1109,6 +1114,10 @@ nav a:hover {
 
   .align-center-md {
     align-items: center;
+  }
+
+  .slideshow {
+    display: none;
   }
 }
 
@@ -1206,6 +1215,10 @@ nav a:hover {
 
   .align-center-lg {
     align-items: center;
+  }
+
+  .slideshow {
+    display: inline-block;
   }
 }
 

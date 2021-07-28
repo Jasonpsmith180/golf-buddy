@@ -31,7 +31,7 @@ const CommentForm = ({ scoreId }) => {
     };
 
     return (
-        <div>
+        <div className="bg-light mb-4 card">
             <p className={`"m-0" ${characterCount === 100 ? 'text-error' : ''}`}>
                 Character Count: {characterCount}/100
                 {error && <span className='ml-2'>Something went wrong...</span>}
